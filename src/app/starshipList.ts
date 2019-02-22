@@ -7,7 +7,7 @@ import { StarshipApi } from './StarshipApi';
   templateUrl: './starshipList.html'
 })
 export class StarshipListComponent {
-  starships: any[];
+  starships: any[] = [];
 
   constructor(api: StarshipApi) {
     api.loadStarships()
