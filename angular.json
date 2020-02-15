@@ -116,6 +116,7 @@
           }
         }
       }
-    }},
+    }
+  },
   "defaultProject": "legacy-api-via-http-promises"
 }
