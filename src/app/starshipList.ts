@@ -12,7 +12,7 @@ export class StarshipListComponent {
   constructor(api: StarshipApi) {
     api
       .loadStarships()
-      .then((data: any) => (this.starships = data))
+      .then((ships: any) => (this.starships = ships))
       .catch(_err => (this.starships = []));
   }
 }
