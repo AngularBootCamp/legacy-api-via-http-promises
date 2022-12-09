@@ -1,6 +1,5 @@
 {
   "$schema": "./node_modules/@angular/cli/lib/config/schema.json",
-  "defaultProject": "legacy-api-via-http-promises",
   "newProjectRoot": "projects",
   "projects": {
     "legacy-api-via-http-promises": {
