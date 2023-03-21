@@ -4,9 +4,9 @@ import { StarshipApi } from './StarshipApi';
 
 @Component({
   selector: 'app-root',
-  templateUrl: './starshipList.html'
+  templateUrl: './app.component.html'
 })
-export class StarshipListComponent {
+export class AppComponent {
   starships: any[] = [];
 
   constructor(api: StarshipApi) {

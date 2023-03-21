@@ -12,7 +12,7 @@ export class StarshipApi {
 
   loadStarships(): Promise<any> {
     return firstValueFrom(
-      this.http.get<any>('https://swapi.co/api/starships/', {
+      this.http.get<any>('https://swapi.dev/api/starships/', {
         headers: jsonRequestHeaders
       })
     ).then(shipList => {
