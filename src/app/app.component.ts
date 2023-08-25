@@ -1,18 +1,18 @@
 import { Component } from '@angular/core';
 
-import { StarshipApi } from './StarshipApi';
+import { FilmMeta, StarshipApiService } from './starship-api.service';
 
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html'
 })
 export class AppComponent {
-  starships: any[] = [];
+  starships: FilmMeta[] = [];
 
-  constructor(api: StarshipApi) {
+  constructor(api: StarshipApiService) {
     api
       .loadStarships()
-      .then((ships: any) => (this.starships = ships))
+      .then(ships => (this.starships = ships))
       .catch(_err => (this.starships = []));
   }
 }

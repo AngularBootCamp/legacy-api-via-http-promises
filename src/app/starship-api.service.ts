@@ -4,29 +4,39 @@ import { firstValueFrom } from 'rxjs';
 
 import { jsonRequestHeaders } from './httpUtils';
 
-@Injectable({
-  providedIn: 'root'
-})
-export class StarshipApi {
+export interface FilmMeta {
+  name: string;
+  filmName?: string;
+  films: string[];
+}
+
+export interface Film {
+  title: string;
+}
+
+@Injectable({ providedIn: 'root' })
+export class StarshipApiService {
   constructor(private http: HttpClient) {}
 
-  loadStarships(): Promise<any> {
+  loadStarships(): Promise<FilmMeta[]> {
     return firstValueFrom(
-      this.http.get<any>('https://swapi.devhttps://api.angularbootcamp.com/starships/', {
-        headers: jsonRequestHeaders
-      })
+      this.http.get<{ results: FilmMeta[] }>(
+        'https://swapi.devhttps://api.angularbootcamp.com/starships/',
+        {
+          headers: jsonRequestHeaders
+        }
+      )
     ).then(shipList => {
       // Promise-based APIs still work fine:
       console.log('Ship list retrieved, GETting film data', shipList);
       return Promise.all(
-        shipList.results.map((ship: any) => {
+        shipList.results.map((ship: FilmMeta) => {
           console.log('GETting film data for ' + ship.name);
           return firstValueFrom(
-            this.http.get<any>(ship.films[0], {
+            this.http.get<Film>(ship.films[0], {
               headers: jsonRequestHeaders
             })
           ).then(film => {
-            // console.log(film);
             ship.filmName = film.title;
             return ship;
           });
