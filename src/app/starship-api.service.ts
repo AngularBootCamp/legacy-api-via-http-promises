@@ -21,7 +21,7 @@ export class StarshipApiService {
   loadStarships(): Promise<FilmMeta[]> {
     return firstValueFrom(
       this.http.get<{ results: FilmMeta[] }>(
-        'https://swapi.devhttps://api.angularbootcamp.com/starships/',
+        'https://swapi.dev/api/starships/',
         {
           headers: jsonRequestHeaders
         }
