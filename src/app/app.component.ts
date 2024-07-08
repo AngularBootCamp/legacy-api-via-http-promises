@@ -1,4 +1,4 @@
-import { NgFor, JsonPipe } from '@angular/common';
+import { JsonPipe } from '@angular/common';
 import { Component } from '@angular/core';
 
 import { FilmMeta, StarshipApiService } from './starship-api.service';
@@ -7,7 +7,7 @@ import { FilmMeta, StarshipApiService } from './starship-api.service';
   selector: 'app-root',
   templateUrl: './app.component.html',
   standalone: true,
-  imports: [NgFor, JsonPipe]
+  imports: [JsonPipe]
 })
 export class AppComponent {
   starships: FilmMeta[] = [];

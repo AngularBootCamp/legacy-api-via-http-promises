@@ -1,9 +1,9 @@
 <h3>Starships</h3>
 
 <ul>
-  <li *ngFor="let s of starships">
-    {{ s.name }} (in {{ s.filmName }})
-  </li>
+  @for (s of starships; track s) {
+    <li>{{ s.name }} (in {{ s.filmName }})</li>
+  }
 </ul>
 
 <p>Raw data:</p>
